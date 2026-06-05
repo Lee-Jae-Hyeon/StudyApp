@@ -86,7 +86,7 @@ interface IconProps {
 }
 
 export function Icon({ name, size = 18, className = '', color, strokeWidth = 2, style }: IconProps) {
-  const LucideIcon = (Icons as Record<string, React.ComponentType<React.SVGProps<SVGSVGElement> & { size?: number; strokeWidth?: number }>>)[toPascalCase(name)];
+  const LucideIcon = (Icons as unknown as Record<string, React.ComponentType<React.SVGProps<SVGSVGElement> & { size?: number; strokeWidth?: number }>>)[toPascalCase(name)];
   if (!LucideIcon) return null;
   return <LucideIcon width={size} height={size} className={className} color={color} strokeWidth={strokeWidth} style={style} aria-hidden="true" />;
 }
